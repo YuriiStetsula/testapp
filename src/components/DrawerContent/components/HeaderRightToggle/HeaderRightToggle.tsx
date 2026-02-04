@@ -1,10 +1,10 @@
+import { Ionicons } from '@expo/vector-icons'
 import { useDrawerStatus } from '@react-navigation/drawer'
 import { DrawerActions } from '@react-navigation/native'
 import { useNavigationContainerRef } from 'expo-router'
-import { Pressable, Text } from 'react-native'
+import { Pressable } from 'react-native'
 
 export const HeaderRightToggle = () => {
-  // const navigation = useNavigation()
   const status = useDrawerStatus()
 
   const isOpen = status === 'open'
@@ -22,9 +22,7 @@ export const HeaderRightToggle = () => {
       hitSlop={12}
       style={{ paddingHorizontal: 14, paddingVertical: 8 }}
     >
-      <Text style={{ color: 'white', fontSize: 28, lineHeight: 28 }}>
-        {isOpen ? '×' : '≡'}
-      </Text>
+      <Ionicons name={isOpen ? 'close' : 'menu'} size={25} color="white" />
     </Pressable>
   )
 }

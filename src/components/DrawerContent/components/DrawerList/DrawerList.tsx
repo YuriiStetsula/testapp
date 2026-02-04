@@ -1,4 +1,5 @@
 import { MenuItem } from '@/queries/menuQuery'
+import { Ionicons } from '@expo/vector-icons'
 import { useMemo } from 'react'
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
 import { buildVisibleRows } from './helpers'
@@ -63,9 +64,11 @@ export const DrawerTreeFlatList = ({
                   accessibilityRole="button"
                   accessibilityLabel={isExpanded ? 'Collapse' : 'Expand'}
                 >
-                  <Text style={styles.chevronText}>
-                    {isExpanded ? '˅' : '›'}
-                  </Text>
+                  <Ionicons
+                    name={isExpanded ? 'chevron-down' : 'chevron-forward'}
+                    size={16}
+                    color="rgba(255,255,255,0.85)"
+                  />
                 </Pressable>
               ) : (
                 <View style={styles.chevronSpacer} />
@@ -97,12 +100,6 @@ const styles = StyleSheet.create({
   chevronBtn: {
     paddingHorizontal: 22,
     paddingVertical: 10,
-  },
-  chevronText: {
-    color: 'rgba(255,255,255,0.85)',
-    fontSize: 34,
-    lineHeight: 34,
-    fontWeight: '700',
   },
   chevronSpacer: {
     width: 22 + 14,
