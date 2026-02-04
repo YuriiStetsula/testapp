@@ -23,8 +23,6 @@ export const DrawerTreeFlatList = ({
     [items, expandedKeys, parentKey],
   )
 
-  console.log(rows)
-
   return (
     <FlatList
       data={rows}
@@ -37,7 +35,6 @@ export const DrawerTreeFlatList = ({
           if (hasUrl && !hasChildren) {
             onNavigate(item.url)
           } else if (hasChildren) {
-            console.log('toggleExpanded', key)
             toggleExpanded(key)
           }
         }
